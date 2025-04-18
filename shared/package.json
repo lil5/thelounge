@@ -1,0 +1,16 @@
+{
+  "name": "shared",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/linkify-it": "^5.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "linkify-it": "^5.0.0",
+    "tlds": "^1.256.0"
+  }
+}

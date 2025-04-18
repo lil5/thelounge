@@ -406,7 +406,7 @@ function forceNoCacheRequest(_req: Request, res: Response, next: NextFunction) {
 function indexRequest(_req: Request, res: Response) {
 	res.setHeader("Content-Type", "text/html");
 
-	fs.readFile(Utils.getFileFromRelativeToRoot("client/index.html.tpl"), "utf-8", (err, file) => {
+	fs.readFile(Utils.getFileFromRelativeToRoot("client","dist","index.html"), "utf-8", (err, file) => {
 		if (err) {
 			log.error(`failed to server index request: ${err.name}, ${err.message}`);
 			res.sendStatus(500);

@@ -1,3 +1,16 @@
+# Added stuff in this current fork
+
+Run the following:
+```
+cd client
+bun i
+bun x vite build
+cd ../server
+bun run index.ts start
+```
+
+<!-- Delete this line and above before merging -->
+
 <h1 align="center">
 	<img
 		width="300"

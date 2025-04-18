@@ -1,5 +1,5 @@
 import colors from "chalk";
-import read from "read";
+import * as read from "read";
 
 function timestamp() {
 	const datetime = new Date().toISOString().split(".")[0].replace("T", " ");

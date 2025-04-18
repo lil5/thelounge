@@ -33,7 +33,7 @@ export default {
 };
 
 function loadLocalThemes() {
-	const builtInThemes = fs.readdirSync(Utils.getFileFromRelativeToRoot("public", "themes"));
+	const builtInThemes = fs.readdirSync(Utils.getFileFromRelativeToRoot("client", "dist", "themes"));
 
 	builtInThemes
 		.filter((theme) => theme.endsWith(".css"))
