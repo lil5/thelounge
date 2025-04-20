@@ -3,6 +3,8 @@ import colors from "chalk";
 import {Command} from "commander";
 import Config from "../config";
 import Utils from "./utils";
+import fs from "fs/promises"
+import path from "path"
 
 const program = new Command("uninstall");
 program
@@ -10,10 +12,7 @@ program
 	.description("Uninstall a theme or a package")
 	.on("--help", Utils.extraHelp)
 	.action(async function (packageName: string) {
-		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const fs = require("fs").promises;
-		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const path = require("path");
+
 
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");
 		// const packages = JSON.parse(fs.readFileSync(packagesConfig, "utf-8"));

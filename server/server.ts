@@ -92,10 +92,11 @@ export default async function (
 		.use(allRequests)
 		.use(addSecurityHeaders)
 		.get("/", indexRequest)
-		.get("/service-worker.js", forceNoCacheRequest)
-		.get("/js/bundle.js.map", forceNoCacheRequest)
-		.get("/css/style.css.map", forceNoCacheRequest)
-		.use(express.static(Utils.getFileFromRelativeToRoot("public"), staticOptions))
+		.get("/index.html", indexRequest)
+		// .get("/service-worker.js", forceNoCacheRequest)
+		// .get("/js/bundle.js.map", forceNoCacheRequest)
+		// .get("/css/style.css.map", forceNoCacheRequest)
+		.use(express.static(Utils.getFileFromRelativeToRoot("client", "dist"), staticOptions))
 		.use("/storage/", express.static(Config.getStoragePath(), staticOptions));
 
 	if (Config.values.fileUpload.enable) {

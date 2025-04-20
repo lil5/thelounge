@@ -7,6 +7,13 @@ import {Command} from "commander";
 import Helper from "../helper";
 import Config from "../config";
 import Utils from "./utils";
+import Start from "./start"
+	import Install from "./install"
+	import Uninstall from "./uninstall"
+	import Upgrade from "./upgrade"
+	import Outdated from "./outdated"
+	import Storage from "./storage"
+	import Users from "./users"
 
 const program = new Command("thelounge");
 program
@@ -37,15 +44,15 @@ createPackagesFolder();
 // Merge config key-values passed as CLI options into the main config
 Config.merge(program.opts().config);
 
-program.addCommand(require("./start").default);
-program.addCommand(require("./install").default);
-program.addCommand(require("./uninstall").default);
-program.addCommand(require("./upgrade").default);
-program.addCommand(require("./outdated").default);
-program.addCommand(require("./storage").default);
+program.addCommand(Start);
+program.addCommand(Install);
+program.addCommand(Uninstall);
+program.addCommand(Upgrade);
+program.addCommand(Outdated);
+program.addCommand(Storage);
 
 if (!Config.values.public) {
-	require("./users").default.forEach((command: Command) => {
+	Users.forEach((command) => {
 		if (command) {
 			program.addCommand(command);
 		}

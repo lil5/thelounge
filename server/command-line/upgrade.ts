@@ -4,6 +4,8 @@ import colors from "chalk";
 import {Command} from "commander";
 import Config from "../config";
 import Utils from "./utils";
+import fs from "fs"
+import path from "path"
 
 const program = new Command("upgrade");
 program
@@ -11,9 +13,6 @@ program
 	.description("Upgrade installed themes and packages to their latest versions")
 	.on("--help", Utils.extraHelp)
 	.action(function (packages) {
-		const fs = require("fs");
-		const path = require("path");
-
 		// Get paths to the location of packages directory
 		const packagesConfig = path.join(Config.getPackagesPath(), "package.json");
 		const packagesList = JSON.parse(fs.readFileSync(packagesConfig, "utf-8")).dependencies;

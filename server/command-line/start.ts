@@ -5,6 +5,7 @@ import path from "path";
 import {Command} from "commander";
 import Config from "../config";
 import Utils from "./utils";
+import Server from "../server"
 
 const program = new Command("start");
 program
@@ -14,10 +15,8 @@ program
 	.action(function (options) {
 		initalizeConfig();
 
-		const newLocal = "../server";
-		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const server = require(newLocal);
-		server.default(options);
+		const server = Server
+		server(options);
 	});
 
 function initalizeConfig() {

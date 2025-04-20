@@ -5,6 +5,7 @@ import fs from "fs";
 import Helper from "../../helper";
 import Config from "../../config";
 import Utils from "../utils";
+import ClientManager from "../../clientManager";
 
 const program = new Command("add");
 program
@@ -20,7 +21,7 @@ program
 		}
 
 		// eslint-disable-next-line @typescript-eslint/no-var-requires
-		const ClientManager = require("../../clientManager").default;
+
 		const manager = new ClientManager();
 		const users = manager.getUsers();
 
@@ -72,7 +73,7 @@ program
 		);
 	});
 
-function add(manager, name, password, enableLog) {
+function add(manager:ClientManager, name:string, password:string, enableLog:boolean) {
 	const hash = Helper.password.hash(password);
 	manager.addUser(name, hash, enableLog);
 

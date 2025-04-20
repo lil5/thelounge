@@ -1,11 +1,13 @@
 import Config from "../../config";
 let add, reset;
+import Add from "./add"
+import Reset from "./reset"
 
 if (!Config.values.ldap.enable) {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
-	add = require("./add").default;
+	add =Add;
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
-	reset = require("./reset").default;
+	reset =Reset;
 }
 
 import list from "./list";
